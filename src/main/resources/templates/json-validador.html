@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Validador JSON I.F.</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Validador JSON I.F.</h1>
+            <form action="#" th:action="@{/json-validador}" th:object="${jsonModel}" method="post" >
+                <div class="mb-3">
+                    <label class="form-label">Tipo de arquivo a ser processado:</label>
+                    <select th:field="*{tipoArquivo}" class="form-control">
+                        <option th:value="'tipo1'">Tipo de Arquivo 1</option>
+                        <option th:value="'tipo2'">Tipo de Arquivo 2</option>
+                        <option th:value="'tipo3'">Tipo de Arquivo 3</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">JSON:</label>
+                    <textarea  type="text" rows="20" cols="80" class="form-control" th:field="*{json}" />
+                </div>
+
+                <div class="mb-3"><input class="btn btn-large btn-success" type="submit" value="Validar" /></div>
+            </form>
+        </div>
+    </body>
+</html>

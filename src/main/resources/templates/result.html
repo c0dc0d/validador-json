@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Getting Started: Handling Form Submission</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Validador JSON I.F.</h1>
+
+            <h4>Resultado Validação:</h4>
+
+            <p th:each="erro : ${jsonModel.erros}" th:text="${erro}"></p>
+            <p th:if="${jsonModel.erros} == null or ${jsonModel.erros.empty}">Não há erros no JSON</p>
+
+            <div class="mb-3">
+                <label class="form-label">JSON: <label th:text="${jsonModel.tipoArquivo}"/> </label>
+                <p th:text="${jsonModel.json}" style="white-space: pre; background-color: #F4F9F9"/>
+            </div>
+            <div class="mb-3"><a href='/json-validador' class="btn btn-danger">Voltar</a></div>
+        </div>
+    </body>
+</html>
